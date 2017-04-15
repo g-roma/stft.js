@@ -1,0 +1,23 @@
+{
+  "name": "stft.js",
+  "version": "0.0.1",
+  "description": "A javascript STFT implementation for audio processing.",
+  "main": "stft.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g-roma/stft.js.git"
+  },
+  "keywords": [
+    "STFT",
+    "audio"
+  ],
+  "author": "Gerard Roma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/g-roma/stft.js/issues"
+  },
+  "homepage": "https://github.com/g-roma/stft.js#readme",
+  "dependencies": {
+    "dsp.js": "github:corbanbrook/dsp.js"
+  }
+}
