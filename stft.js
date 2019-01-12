@@ -5,12 +5,12 @@ const array = Float32Array; // change to Float64Array if needed
 class STFT{
 
     constructor( windowSize = 1024, fftSize = 1024,
-                 hopSize = 512, sampleRate = 44100) {
+                 hopSize = 512, sampleRate = 44100, windowType = dsp.DSP.HANN, alpha = undefined) {
       this.windowSize = windowSize;
       this.fftSize = fftSize;
       this.hopSize = hopSize;
       this.sampleRate = sampleRate;
-      this.window = new dsp.WindowFunction(dsp.DSP.HANN);
+      this.window = new dsp.WindowFunction(windowType, alpha);
       this.fft = new dsp.FFT(fftSize, this.sampleRate);
       this.prevRaw =  new array(this.fftSize);  // previous unprocessed buffer
       this.prevProcessed =  new array(this.fftSize); // previous buffer after processing
