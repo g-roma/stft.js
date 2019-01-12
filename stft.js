@@ -74,7 +74,8 @@ class STFT{
         return this.fft.inverse(this.fft.real, this.fft.imag);
     }
 
-    analyze(buffer, processFunc, maxHops = 100000) {
+    analyze(buffer, processFunc = this.magnitude, maxHops = 100000) {
+        this.processFunc = processFunc
         let frames = new Array();
         let arrayHops = Math.floor(
             (buffer.length - this.fftSize) / parseFloat(this.hopSize)
@@ -87,7 +88,7 @@ class STFT{
           let windowed = this.window.process(buffer.slice(start, end));
           this.processSegment(windowed,
                 (real, imag) => {
-                  let mag = this.magnitude(real, imag);
+                  let mag = this.processFunc(real, imag);
                   frames.push(mag.slice(0, size));
                 });
          }
