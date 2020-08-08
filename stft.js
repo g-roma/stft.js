@@ -64,7 +64,7 @@ class STFT{
         for(let i = 0; i < this.hopSize; i++){
             this.prevProcessed[i] += overlapWindow[i +this.hopSize];
         }
-        this.prevRaw = array;
+        this.prevRaw = buffer;
         return result;
     }
 
